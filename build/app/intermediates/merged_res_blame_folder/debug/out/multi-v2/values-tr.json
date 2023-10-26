@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.boiler_plate.app-mergeDebugResources-15:/values-tr/values-tr.xml",
+            "map": [
+                {
+                    "source": "/Users/presidio/.gradle/caches/transforms-3/4215a8c2a394355dab1ed981fefe0e6c/transformed/jetified-play-services-basement-18.1.0/res/values-tr/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "142",
+                        "endOffsets": "337"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "146",
+                        "endOffsets": "197"
+                    }
+                },
+                {
+                    "source": "/Users/presidio/.gradle/caches/transforms-3/2968f04632163c37eff8858eeb51edd0/transformed/core-1.6.0/res/values-tr/values-tr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "202",
+                        "endColumns": "100",
+                        "endOffsets": "298"
+                    }
+                }
+            ]
+        }
+    ]
+}

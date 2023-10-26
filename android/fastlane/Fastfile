@@ -1,0 +1,52 @@
+
+default_platform(:android)
+
+platform :android do
+
+  desc "validate key"
+  lane :check_key do
+    validate_play_store_json_key(
+      json_key: 'fastlane/key.json'
+    )
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Submit a new Beta Build to Crashlytics Beta"
+  lane :build_app_bundle do
+    sh("echo", "test")
+    sh("cd", "../")
+    sh("flutter", "build", "appbundle")
+  end
+
+  desc "Submit a new Beta Build to Crashlytics Beta"
+  lane :build_application do
+    gradle(
+      task: "bundle",
+      build_type: "Release"
+    )
+  end
+
+  desc "Build and Deploy application to the playstore"
+  lane :deploy_application do
+    build_application
+    deploy
+  end
+
+  desc "Deploy a new beta version to the Google Play"
+  lane :deploy do
+    upload_to_play_store(
+      package_name: "com.boilerplate.app",
+      skip_upload_changelogs: true,
+      skip_upload_metadata: true,
+      track: 'production',
+      version_code: 1,
+      version_name: "1.0.0",
+      release_status: 'draft',
+      aab: '/boiler_plate/build/app/outputs/bundle/release/app-release.aab',
+    )
+  end
+end

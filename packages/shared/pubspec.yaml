@@ -4,11 +4,14 @@ version: 1.0.0
 # repository: https://github.com/my_org/my_repo
 
 environment:
-  sdk: ^3.0.6
+  sdk: '>=3.0.6 <4.0.0'
 
 # Add regular dependencies here.
 dependencies:
   dio: ^5.3.3
+  firebase_core: ^2.20.0
+  firebase_remote_config: ^4.3.2
+  firebase_analytics: ^10.6.2
   flutter:
     sdk: flutter
   # path: ^1.8.0

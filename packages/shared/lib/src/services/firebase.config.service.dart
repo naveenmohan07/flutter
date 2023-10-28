@@ -11,9 +11,9 @@ class FirebaseConfigService {
 
   Future<void> _setConfigSettings() async => _remoteConfig.setConfigSettings(
     RemoteConfigSettings(
-      fetchTimeout: const Duration(minutes: 1),
+      fetchTimeout: const Duration(seconds: 10),
     
-      minimumFetchInterval: const Duration(minutes: 0),
+      minimumFetchInterval: const Duration(minutes: 1),
     ),
   );
 

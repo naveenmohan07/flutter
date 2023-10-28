@@ -16,4 +16,7 @@ export 'src/constants/firebase.constant.dart';
 export 'src/themes/theme.dart';
 
 export 'src/services/firebase.config.service.dart';
+
+export 'src/utils/http.util.dart';
+export 'src/utils/logger.util.dart';
 // TODO: Export any libraries intended for clients of this package.

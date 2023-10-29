@@ -2,4 +2,5 @@
 
 class USER_ROUTES {
   static String HOME = '/home';
+  static String PROFILE = '/profile';
 }

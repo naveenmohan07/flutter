@@ -9,6 +9,10 @@ class USER_ROUTER {
     GetPage(
       name: USER_ROUTES.HOME,
       page: () => const HomeScreen(),
+    ),
+    GetPage(
+      name: USER_ROUTES.PROFILE,
+      page: () => const ProfileScreen(),
     )
   ];
 }

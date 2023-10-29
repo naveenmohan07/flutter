@@ -18,8 +18,31 @@ class _UserAppState extends State<UserApp> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: HomeScreen()
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("User"),
+        ),
+        body: const TabBarView(
+          children: [
+            HomeScreen(),
+            ProfileScreen()
+          ],
+        ),
+        bottomNavigationBar: const TabBar(
+          labelColor: Colors.teal,
+          indicatorColor: Colors.teal,
+          tabs: [
+            Tab(
+              text: "Home",
+            ),
+            Tab(
+              text: "Profile",
+            )
+          ],
+        ),
+      ),
     );
   }
 }

@@ -12,6 +12,9 @@ export 'src/screens/unauthorized.screen.dart';
 
 export 'src/constants/color.constant.dart';
 export 'src/constants/firebase.constant.dart';
+export 'src/constants/route.constant.dart';
+
+export 'src/routers/shared.router.dart';
 
 export 'src/themes/theme.dart';
 

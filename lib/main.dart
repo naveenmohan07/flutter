@@ -1,4 +1,5 @@
 import 'package:boiler_plate/apps/user.app.dart';
+import 'package:boiler_plate/constants/app.route.constant.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
@@ -36,16 +37,10 @@ class _MainAppState extends State<MainApp> {
       theme: val == "light"
           ? ApplicationTheme.lightTheme
           : ApplicationTheme.darkTheme,
-      initialRoute: "/splash",
+      initialRoute: SHARED_ROUTES.SPLASH_SCREEN,
       getPages: [
-        GetPage(name: "/splash", page: () => const SplashScreen()),
-        GetPage(
-          name: "/user",
-          page: () => const UserApp(),
-          children: [
-            GetPage(name: "/home", page: () => const HomeScreen())
-          ],
-        )
+        ...SHARED_ROUTER.routes,
+        GetPage(name: APP_ROUTES.USER, page: () => const UserApp(), children: USER_ROUTER.routes)
       ],
     );
   }

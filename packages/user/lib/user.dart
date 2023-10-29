@@ -7,4 +7,5 @@ export 'src/user_base.dart';
 
 export 'src/screen/home.screen.dart';
 
+export 'src/routers/user.router.dart';
 // TODO: Export any libraries intended for clients of this package.

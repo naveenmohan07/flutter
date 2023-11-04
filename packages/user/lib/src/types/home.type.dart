@@ -1,11 +1,11 @@
 // ignore: empty_constructor_bodies
 
 class IPost {
-  final int userId;
-  final int id;
-  final String title;
+  int? userId;
+  int? id;
+  String? title;
 
-  IPost({required this.id, required this.userId, required this.title});
+  IPost({this.id, this.userId, this.title});
 
   IPost copyWith({int? userId, int? id, String? title}) => IPost(
       id: id ?? this.id,

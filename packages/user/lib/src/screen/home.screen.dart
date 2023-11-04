@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shared/shared.dart';
+import 'package:user/src/controllers/home.controller.dart';
 import 'package:user/src/services/home.service.dart';
 import 'package:user/src/types/home.type.dart';
 
@@ -12,48 +15,31 @@ class HomeScreen extends StatefulWidget {
 }
 
 IPost? post;
-
-getTodo() async {
-  post = await homeService.getTodos();
-}
+HomeController _hc = Get.put(HomeController());
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   void initState() {
-    print("home init state");
+    _hc.getPost();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: FutureBuilder(
-            future: getTodo(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                // loading state
-                return const CircularProgressIndicator();
-              } else if (snapshot.connectionState == ConnectionState.done) {
-                if (snapshot.hasError) {
-                  return const Text("Error");
-                } else {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("USER_ID => ${post?.userId ?? 'User Id empty'}"),
-                      Text("TITLE => ${post?.title ?? 'Title empty'}"),
-                    ],
-                  );
-                }
-              } else {
-                return const Text("No Data");
-              }
-            },
-          ),
+          child: Obx(() {
+            if(_hc.postStatus.value == API_STATUS.loading) {
+              return CircularProgressIndicator();
+            }
+            else if(_hc.postStatus.value == API_STATUS.success) {
+              return Text("POST => ${_hc.post.value.title}");
+            } else {
+              return Text("ERROR");
+            }
+          })
         ),
       ),
     );
